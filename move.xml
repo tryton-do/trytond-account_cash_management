@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!-- This file is part of account_cash_management module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <!-- account.move.line -->
+        <record model="ir.ui.view" id="payment_move_line_tree_view">
+            <field name="model">account.move.line</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="10"/>
+            <field name="name">move_line_tree</field>
+        </record>
+
+        <!-- Payables -->
+        <record model="ir.action.act_window" id="act_payable_payment_move_line">
+            <field name="name">Payables</field>
+            <field name="res_model">account.move.line</field>
+            <field name="domain">[('account_kind', '=', 'payable')]</field>
+            <field name="context"></field>
+            <field name="search_value"></field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_payable_payment_move_line_tree_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="payment_move_line_tree_view"/>
+            <field name="act_window" ref="act_payable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_payable_payment_move_line_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="account.move_line_view_form"/>
+            <field name="act_window" ref="act_payable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_payable_payment_move_line_domain_unreconciled">
+            <field name="name">Pending Unreconciled</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('reconciliation', '=', False)]</field>
+            <field name="act_window" ref="act_payable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_payable_payment_move_line_domain_reconciled">
+            <field name="name">In Payment Orders</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('reconciliation', '=', False), ('payment', '!=', False)]</field>
+            <field name="act_window" ref="act_payable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_payable_payment_move_line_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="act_payable_payment_move_line"/>
+        </record>
+        <menuitem parent="account_payment.menu_account_payment"
+            action="act_payable_payment_move_line"
+            id="menu_payable_move_line"
+            sequence="10"/>
+
+        <!-- Receivables -->
+        <record model="ir.action.act_window" id="act_receivable_payment_move_line">
+            <field name="name">Receivables</field>
+            <field name="res_model">account.move.line</field>
+            <field name="domain">[('account_kind', '=', 'receivable')]</field>
+            <field name="context"></field>
+            <field name="search_value"></field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_receivable_payment_move_line_tree_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="payment_move_line_tree_view"/>
+            <field name="act_window" ref="act_receivable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_receivable_payment_move_line_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="account.move_line_view_form"/>
+            <field name="act_window" ref="act_receivable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_unreconciled">
+            <field name="name">Pending Unreconciled</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('reconciliation', '=', False)]</field>
+            <field name="act_window" ref="act_receivable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_reconciled">
+            <field name="name">In Payment Orders</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('reconciliation', '=', False), ('payment', '!=', False)]</field>
+            <field name="act_window" ref="act_receivable_payment_move_line"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="act_receivable_payment_move_line"/>
+        </record>
+        <menuitem parent="account_payment.menu_account_payment"
+            action="act_receivable_payment_move_line"
+            id="menu_receivable_move_line"
+            sequence="20"/>
+
+    </data>
+</tryton>
