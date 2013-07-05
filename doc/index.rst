@@ -1,7 +1,7 @@
-Account Cash Statement Module Module
-####################################
+Account Cash Statement Module
+#############################
 
-The account_cash_statement tryton module defines two menus: payable and
+The account cash statement tryton module defines two menus: payable and
 receivable. In these menus you can see pending payments unreconciled, pending
 payments with account payments related and all payments.
 
