@@ -41,7 +41,7 @@ setup(name='trytonspain_account_cash_management',
     ],
     package_data={
         'trytond.modules.account_cash_management': info.get('xml', []) \
-            + ['tryton.cfg', 'locale/*.po'],
+            + ['tryton.cfg', 'view/*.xml', 'locale/*.po'],
 
     },
     classifiers=[
