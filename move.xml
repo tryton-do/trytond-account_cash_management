@@ -49,7 +49,7 @@ copyright notices and license terms. -->
             <field name="domain"></field>
             <field name="act_window" ref="act_payable_payment_move_line"/>
         </record>
-        <menuitem parent="account_payment.menu_account_payment"
+        <menuitem parent="account_payment.menu_payments"
             action="act_payable_payment_move_line"
             id="menu_payable_move_line"
             sequence="10"/>
@@ -90,7 +90,7 @@ copyright notices and license terms. -->
             <field name="domain"></field>
             <field name="act_window" ref="act_receivable_payment_move_line"/>
         </record>
-        <menuitem parent="account_payment.menu_account_payment"
+        <menuitem parent="account_payment.menu_payments"
             action="act_receivable_payment_move_line"
             id="menu_receivable_move_line"
             sequence="20"/>
