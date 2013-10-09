@@ -75,13 +75,13 @@ copyright notices and license terms. -->
         <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_unreconciled">
             <field name="name">Pending Unreconciled</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('reconciliation', '=', False)]</field>
+            <field name="domain">[('reconciliation', '=', None)]</field>
             <field name="act_window" ref="act_receivable_payment_move_line"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_reconciled">
             <field name="name">In Payment Orders</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('reconciliation', '=', False), ('payment', '!=', False)]</field>
+            <field name="domain">[('reconciliation', '=', None), ('payment', '!=', None)]</field>
             <field name="act_window" ref="act_receivable_payment_move_line"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_all">
