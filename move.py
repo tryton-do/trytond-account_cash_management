@@ -2,6 +2,7 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.model import fields
+from trytond.pyson import Eval, If, Equal
 from trytond.pool import PoolMeta
 
 __all__ = ['Line']
@@ -11,3 +12,8 @@ __metaclass__ = PoolMeta
 class Line:
     __name__ = 'account.move.line'
     cheque_received = fields.Boolean('Cheque Received')
+
+    @classmethod
+    def view_attributes(cls):
+        return [('/tree', 'colors',
+                If(Equal(Eval('state'), 'draft'), 'red', 'black'))]
