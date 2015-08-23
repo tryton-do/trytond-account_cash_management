@@ -12,8 +12,3 @@ __metaclass__ = PoolMeta
 class Line:
     __name__ = 'account.move.line'
     cheque_received = fields.Boolean('Cheque Received')
-
-    @classmethod
-    def view_attributes(cls):
-        return [('/tree', 'colors',
-                If(Equal(Eval('state'), 'draft'), 'red', 'black'))]
