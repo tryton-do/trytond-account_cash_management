@@ -17,7 +17,9 @@ copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_payable_payment_move_line">
             <field name="name">Payables</field>
             <field name="res_model">account.move.line</field>
-            <field name="domain">[('account_kind', '=', 'payable')]</field>
+            <field name="domain"
+                eval="[('account_kind', '=', 'payable')]"
+                pyson="1"/>
             <field name="context"></field>
             <field name="search_value"></field>
         </record>
@@ -34,13 +36,17 @@ copyright notices and license terms. -->
         <record model="ir.action.act_window.domain" id="act_payable_payment_move_line_domain_unreconciled">
             <field name="name">Pending Unreconciled</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('reconciliation', '=', None)]</field>
+            <field name="domain"
+                eval="[('reconciliation', '=', None)]"
+                pyson="1"/>
             <field name="act_window" ref="act_payable_payment_move_line"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_payable_payment_move_line_domain_reconciled">
             <field name="name">In Payment Orders</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('reconciliation', '=', None), ('payment', '!=', None)]</field>
+            <field name="domain"
+                eval="[('reconciliation', '=', None), ('payment', '!=', None)]"
+                pyson="1"/>
             <field name="act_window" ref="act_payable_payment_move_line"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_payable_payment_move_line_domain_all">
@@ -58,7 +64,9 @@ copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_receivable_payment_move_line">
             <field name="name">Receivables</field>
             <field name="res_model">account.move.line</field>
-            <field name="domain">[('account_kind', '=', 'receivable')]</field>
+            <field name="domain"
+                eval="[('account_kind', '=', 'receivable')]"
+                pyson="1"/>
             <field name="context"></field>
             <field name="search_value"></field>
         </record>
@@ -75,13 +83,17 @@ copyright notices and license terms. -->
         <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_unreconciled">
             <field name="name">Pending Unreconciled</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('reconciliation', '=', None)]</field>
+            <field name="domain"
+                eval="[('reconciliation', '=', None)]"
+                pyson="1"/>
             <field name="act_window" ref="act_receivable_payment_move_line"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_reconciled">
             <field name="name">In Payment Orders</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('reconciliation', '=', None), ('payment', '!=', None)]</field>
+            <field name="domain"
+                eval="[('reconciliation', '=', None), ('payment', '!=', None)]"
+                pyson="1"/>
             <field name="act_window" ref="act_receivable_payment_move_line"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_receivable_payment_move_line_domain_all">
