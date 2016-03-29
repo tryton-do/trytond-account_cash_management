@@ -6,9 +6,9 @@ from trytond.pyson import Eval, If, Equal
 from trytond.pool import PoolMeta
 
 __all__ = ['Line']
-__metaclass__ = PoolMeta
 
 
 class Line:
+    __metaclass__ = PoolMeta
     __name__ = 'account.move.line'
     cheque_received = fields.Boolean('Cheque Received')
