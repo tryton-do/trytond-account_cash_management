@@ -2,7 +2,7 @@
 <!-- This file is part of account_cash_management module for Tryton.
 The COPYRIGHT file at the top level of this repository contains the
 full copyright notices and license terms. -->
-<tree string="Account Move Lines" editable="top"
+<tree editable="top"
     on_write="on_write">
     <field name="move"/>
     <field name="origin"/>
