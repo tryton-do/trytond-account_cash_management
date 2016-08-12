@@ -16,7 +16,5 @@ full copyright notices and license terms. -->
     <field name="reconciliation"/>
     <field name="state"/>
     <field name="move_state"/>
-    <field name="bank_account"/>
-    <field name="payment_type"/>
     <field name="cheque_received"/>
 </tree>
